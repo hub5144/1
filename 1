@@ -8135,11 +8135,11 @@ Weapon:Seperator("V2 + Ghoul ")
  StopTween(_G.mudautr)
 end)
 
-Weapon:Toggle("Auto Đánh Boss + Đổi tộc Qủy",_G.mudautr,function(value)
+Weapon:Toggle("Auto Đánh Boss + Đổi tộc Qủy",_G.tocquyautr,function(value)
  _G.tocquy = value
  _G.click = value
- _G.FastAttack = value
- _G.FastAttack1 = value
+ _G.FastAttack = false
+ _G.FastAttack1 = false
  StopTween(_G.tocquy)
 end)
 
@@ -13791,7 +13791,6 @@ end)
 
 wait(4)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/2'))()
-
 
 
 
