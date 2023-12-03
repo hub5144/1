@@ -206,9 +206,9 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/3'))()
 
 
 if game.PlaceId == 7449423635 then 
-local currentTime1 = game.Lighting.TimeOfDay
-if currentTime1 >= "12:00:00" and currentTime1 <= "04:59:00" then
 if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+local currentTime = game.Lighting.TimeOfDay
+if currentTime <= "04:59:00" then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/3'))()
 
                     local HttpService = game:GetService("HttpService")
