@@ -191,53 +191,62 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/3'))()
 
 
 
-if game.PlaceId == 7449423635 then 
-if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
-if currentTime >= "13:00:00" and currentTime <= "04:59:00" then
-loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/3'))()
+
+
+spawn(function()
+    while true do
+        task.wait(120)
+        pcall(function()
+            local currentTime = game.Lighting.TimeOfDay
+            if currentTime >= "12:00:00" and currentTime <= "04:59:00" then
+                if game.PlaceId == 7449423635 and game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" then
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/hub5144/1/main/3'))()
 
                     local HttpService = game:GetService("HttpService")
-local Data =
-{
-    ["embeds"] = {
-        {
-            ["title"] = "Full Moon  ✅",
-            ["color"] = tonumber(0x7269da),
-            ["fields"] = {
-                {
-                    ["name"] = "Thời Gian",
-                    ["value"] = "```"..Checktime.. "```",
-                    ["inline"] = true
-                },
-             {
-                    ["name"] = "Check Trăng",
-                    ["value"] = "```"..FullMoon123.. "```",
-                    ["inline"] = true
-                },
-                {
-                    ["name"] = "Người Trong Sever",
-                    ["value"] = "```" .. playerCount .. "/12```",
-                    ["inline"] = true
-                },
-                {
-                    ["name"] = "lệnh teleport sever",
-                    ["value"] = 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '", game.Players.LocalPlayer)',
-                    ["inline"] = true
-                },
-            }
-        }
-    }
-}
-local Headers = { ["Content-Type"] = "application/json" }
-local Encoded = HttpService:JSONEncode(Data)
+                    local Data = {
+                        ["embeds"] = {
+                            {
+                                ["title"] = "Full Moon  ✅",
+                                ["color"] = tonumber(0x7269da),
+                                ["fields"] = {
+                                    {
+                                        ["name"] = "Thời Gian",
+                                        ["value"] = "```" .. Checktime .. "```",
+                                        ["inline"] = true
+                                    },
+                                    {
+                                        ["name"] = "Check Trăng",
+                                        ["value"] = "```" .. FullMoon123 .. "```",
+                                        ["inline"] = true
+                                    },
+                                    {
+                                        ["name"] = "Người Trong Sever",
+                                        ["value"] = "```" .. playerCount .. "/12```",
+                                        ["inline"] = true
+                                    },
+                                    {
+                                        ["name"] = "lệnh teleport sever",
+                                        ["value"] = 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '", game.Players.LocalPlayer)',
+                                        ["inline"] = true
+                                    },
+                                }
+                            }
+                        }
+                    }
 
-Request = http_request or request or HttpPost or syn.request
-local Final1 = { Url = _G.FullMoon, Body = Encoded, Method = "POST", Headers = Headers }
+                    local Headers = { ["Content-Type"] = "application/json" }
+                    local Encoded = HttpService:JSONEncode(Data)
 
-Request(Final1)
-end
-end
-end
+                    Request = http_request or request or HttpPost or syn.request
+                    local Final1 = { Url = _G.FullMoon, Body = Encoded, Method = "POST", Headers = Headers }
+
+                    Request(Final1)
+                end
+            end
+        end)
+    end
+end)
+
             
             
             
